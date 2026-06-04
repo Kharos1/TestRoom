@@ -1,8 +1,3 @@
-// ============================================================
-// สบายใจ รีสอร์ท — script.js
-// Supabase Backend Integration
-// ============================================================
- 
 const SUPABASE_URL = 'https://cstbakhzinzvkimaxzom.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNzdGJha2h6aW56dmtpbWF4em9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1NTU3NjAsImV4cCI6MjA5NjEzMTc2MH0.pMBC93JDOaoHf3RJlmmwDrcltP0kFNTxno3V2kqGSEY';
  
@@ -428,7 +423,7 @@ function showPage(pageId) {
  
 function login() {
   const pass = document.getElementById('adminPass').value;
-  if (pass === '1234') {
+  if (pass === '7704') {
     sessionStorage.setItem('isAdmin', 'true');
     document.getElementById('logoutBtn').classList.remove('hidden');
     showPage('admin');
