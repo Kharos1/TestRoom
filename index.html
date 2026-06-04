@@ -1,153 +1,169 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ระบบจองห้องพัก - สบายใจ รีสอร์ท</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สบายใจ รีสอร์ท</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+ 
+<!-- NAV -->
 <nav>
-    <div class="logo" ondblclick="revealAdminLogin()">สบายใจ รีสอร์ท</div>
-    <div class="nav-links">
-        <button onclick="showPage('customer')">หน้าแรก</button>
-        <button id="logoutBtn" class="hidden" onclick="logout()" style="border-color: var(--danger); color: var(--danger);">ออกจากระบบแอดมิน</button>
-    </div>
+  <div class="logo" ondblclick="revealAdminLogin()">สบายใจ รีสอร์ท</div>
+  <div class="nav-links">
+    <button onclick="showPage('customer')">หน้าแรก</button>
+    <button id="logoutBtn" class="hidden" onclick="logout()" style="border-color:var(--danger);color:var(--danger);">ออกจากระบบ</button>
+  </div>
 </nav>
-
+ 
+<!-- ====== CUSTOMER PAGE ====== -->
 <div class="container" id="customerPage">
-    
-    <div class="hero">
-        <div>
-            <h1>พักผ่อนอย่างสบายใจ</h1>
-            <p>สัมผัสประสบการณ์การพักผ่อนที่ดีที่สุดกับเรา</p>
-        </div>
+  <div class="hero">
+    <div>
+      <h1>พักผ่อนอย่างสบายใจ</h1>
+      <p>สัมผัสประสบการณ์การพักผ่อนที่ดีที่สุดกับเรา</p>
     </div>
-
-    <div class="filter-menu">
-        <button class="filter-btn active" onclick="filterRooms('All', this)">ทั้งหมด</button>
-        <button class="filter-btn" onclick="filterRooms('Standard', this)">Standard</button>
-        <button class="filter-btn" onclick="filterRooms('Deluxe', this)">Deluxe</button>
-        <button class="filter-btn" onclick="filterRooms('VIP Suite', this)">VIP Suite</button>
+  </div>
+ 
+  <div class="filter-menu">
+    <button class="filter-btn active" onclick="filterRooms('All',this)">ทั้งหมด</button>
+    <button class="filter-btn" onclick="filterRooms('Standard',this)">Standard</button>
+    <button class="filter-btn" onclick="filterRooms('Deluxe',this)">Deluxe</button>
+    <button class="filter-btn" onclick="filterRooms('VIP Suite',this)">VIP Suite</button>
+  </div>
+ 
+  <div class="room-grid" id="roomDisplay">
+    <div class="loading-state"><i class="fa-solid fa-spinner fa-spin"></i> กำลังโหลดข้อมูล...</div>
+  </div>
+ 
+  <footer class="contact-section">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>ติดต่อเรา — สบายใจ รีสอร์ท</h3>
+        <p><i class="fa-solid fa-map-location-dot"></i> ตำบลหินเหล็กไฟ อำเภอหัวหิน จังหวัดประจวบคีรีขันธ์ 77110</p>
+        <p><i class="fa-solid fa-phone"></i> 098-765-4321, 032-111-222</p>
+        <p><i class="fa-brands fa-line"></i> LINE ID: @sabaijairesort</p>
+        <p><i class="fa-brands fa-facebook"></i> Facebook: สบายใจ รีสอร์ท หัวหิน</p>
+      </div>
+      <div class="contact-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31062.483984534345!2d99.91971705!3d12.56843475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30fdab70ca7a1c73%3A0x40223bc2c382580!2sHin%20Lek%20Fai%2C%20Hua%20Hin%20District%2C%20Prachuap%20Khiri%20Khan!5e0!3m2!1sen!2sth!4v1700000000000!5m2!1sen!2sth"
+          width="100%" height="250" style="border:0;border-radius:12px;" allowfullscreen loading="lazy"></iframe>
+      </div>
     </div>
-
-    <div class="room-grid" id="roomDisplay"></div>
-
-    <footer class="contact-section">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>ติดต่อเรา - สบายใจ รีสอร์ท</h3>
-                <p><i class="fa-solid fa-map-location-dot"></i> ตำบลหินเหล็กไฟ อำเภอหัวหิน จังหวัดประจวบคีรีขันธ์ 77110</p>
-                <p><i class="fa-solid fa-phone"></i> 098-765-4321, 032-111-222</p>
-                <p><i class="fa-brands fa-line"></i> LINE ID: @sabaijairesort</p>
-                <p><i class="fa-brands fa-facebook"></i> Facebook: สบายใจ รีสอร์ท หัวหิน</p>
-            </div>
-            
-            <div class="contact-map">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31062.483984534345!2d99.91971705!3d12.56843475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30fdab70ca7a1c73%3A0x40223bc2c382580!2sHin%20Lek%20Fai%2C%20Hua%20Hin%20District%2C%20Prachuap%20Khiri%20Khan!5e0!3m2!1sen!2sth!4v1700000000000!5m2!1sen!2sth" 
-                    width="100%" height="250" style="border:0; border-radius: 12px;" 
-                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
-        <div class="contact-bottom">
-            © 2026 สบายใจ รีสอร์ท (Sabaijai Resort) - สงวนลิขสิทธิ์
-        </div>
-    </footer>
-
-</div> <div class="container hidden" id="loginPage">
-    <div class="login-box">
-        <h2>🔒 เข้าสู่ระบบแอดมิน</h2>
-        <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">กรอกรหัสผ่านเพื่อเข้าสู่ระบบหลังบ้าน (รหัส: 1234)</p>
-        <input type="password" id="adminPass" placeholder="รหัสผ่าน">
-        <button class="btn-booking" onclick="login()">เข้าสู่ระบบ</button>
-        <button onclick="showPage('customer')" style="background: none; border: none; margin-top: 15px; color: #888; cursor: pointer;">กลับหน้าหลัก</button>
-    </div>
+    <div class="contact-bottom">© 2026 สบายใจ รีสอร์ท (Sabaijai Resort) — สงวนลิขสิทธิ์</div>
+  </footer>
 </div>
-
-
+ 
+<!-- ====== LOGIN PAGE ====== -->
+<div class="container hidden" id="loginPage">
+  <div class="login-box">
+    <h2>🔒 เข้าสู่ระบบแอดมิน</h2>
+    <p style="color:#666;font-size:.9rem;margin-bottom:20px;">รหัสผ่านเริ่มต้น: <strong>1234</strong></p>
+    <input type="password" id="adminPass" placeholder="รหัสผ่าน" onkeydown="if(event.key==='Enter')login()">
+    <button class="btn-booking" onclick="login()">เข้าสู่ระบบ</button>
+    <button onclick="showPage('customer')" style="background:none;border:none;margin-top:15px;color:#888;cursor:pointer;">กลับหน้าหลัก</button>
+  </div>
+</div>
+ 
+<!-- ====== ADMIN PAGE ====== -->
 <div class="container hidden" id="adminPage">
-    <div class="admin-header">
-        <h2>📊 แผงควบคุมระบบหลังบ้าน</h2>
-    </div>
-
-    <div class="stats-grid">
-        <div class="stat-card">
-            <p>ห้องว่างพร้อมบริการ</p>
-            <h3 id="statAvailable">0</h3>
-        </div>
-        <div class="stat-card">
-            <p>ห้องที่มีการจอง</p>
-            <h3 id="statBooked">0</h3>
-        </div>
-        <div class="stat-card" style="border-color: var(--primary);">
-            <p>จำนวนห้องทั้งหมด</p>
-            <h3>11</h3>
-        </div>
-    </div>
-
-    <h3 style="margin-bottom: 15px;">สถานะห้องพักและข้อมูลผู้จอง</h3>
+  <div class="admin-header">
+    <h2>📊 แผงควบคุมระบบหลังบ้าน</h2>
+    <button class="btn-add-room" onclick="openAddRoomModal()"><i class="fa-solid fa-plus"></i> เพิ่มห้องใหม่</button>
+  </div>
+ 
+  <div class="stats-grid">
+    <div class="stat-card"><p>ห้องว่างพร้อมบริการ</p><h3 id="statAvailable">—</h3></div>
+    <div class="stat-card"><p>ห้องที่มีการจอง</p><h3 id="statBooked">—</h3></div>
+    <div class="stat-card" style="border-color:var(--primary)"><p>จำนวนห้องทั้งหมด</p><h3 id="statTotal">—</h3></div>
+  </div>
+ 
+  <h3 style="margin-bottom:15px;">สถานะห้องพักและข้อมูลผู้จอง</h3>
+  <div style="overflow-x:auto;">
     <table class="admin-table">
-        <thead>
-            <tr>
-                <th>หมายเลขห้อง</th>
-                <th>ประเภท</th>
-                <th>สถานะ</th>
-                <th>ข้อมูลผู้จอง</th>
-                <th>วันที่เข้าพัก - ย้ายออก</th>
-                <th>การจัดการ</th>
-            </tr>
-        </thead>
-        <tbody id="adminRoomList"></tbody>
+      <thead>
+        <tr>
+          <th>ห้อง</th><th>ประเภท</th><th>ราคา/คืน</th><th>สถานะ</th>
+          <th>ผู้จอง</th><th>วันที่พัก</th><th>จัดการ</th>
+        </tr>
+      </thead>
+      <tbody id="adminRoomList"></tbody>
     </table>
+  </div>
 </div>
-
-
+ 
+<!-- ====== MODAL: BOOKING ====== -->
 <div class="modal" id="bookingModal">
-    <div class="modal-content">
-        <h3 id="bookingRoomName">จองห้องพัก</h3>
-        <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
-        
-        <div class="form-group">
-            <label>ชื่อ-นามสกุล ผู้เข้าพัก</label>
-            <input type="text" id="custName" placeholder="เช่น คุณสมชาย ใจดี">
-        </div>
-        <div class="form-group">
-            <label>เบอร์โทรศัพท์</label>
-            <input type="text" id="custPhone" placeholder="เช่น 0987654321">
-        </div>
-        <div class="form-group">
-            <label>วันที่เช็คอิน (Check-in)</label>
-            <input type="date" id="checkInDate" onchange="setMinCheckOut()">
-        </div>
-        <div class="form-group">
-            <label>วันที่เช็คเอาท์ (Check-out)</label>
-            <input type="date" id="checkOutDate">
-        </div>
-
-        <button class="btn-booking" style="margin-top: 15px;" onclick="submitBooking()">ยืนยันการจองห้องพัก</button>
-        <button onclick="closeModal()" style="width:100%; background:none; border:none; margin-top:10px; cursor:pointer; color: #888;">ยกเลิก</button>
-    </div>
+  <div class="modal-content">
+    <h3 id="bookingRoomName">จองห้องพัก</h3>
+    <hr style="margin:15px 0;border:0;border-top:1px solid #eee;">
+    <div class="form-group"><label>ชื่อ-นามสกุล</label><input type="text" id="custName" placeholder="เช่น คุณสมชาย ใจดี"></div>
+    <div class="form-group"><label>เบอร์โทรศัพท์</label><input type="text" id="custPhone" placeholder="เช่น 0987654321"></div>
+    <div class="form-group"><label>วันเช็คอิน</label><input type="date" id="checkInDate" onchange="setMinCheckOut()"></div>
+    <div class="form-group"><label>วันเช็คเอาท์</label><input type="date" id="checkOutDate"></div>
+    <button class="btn-booking" style="margin-top:15px;" onclick="submitBooking()">ยืนยันการจอง</button>
+    <button onclick="closeModal('bookingModal')" style="width:100%;background:none;border:none;margin-top:10px;cursor:pointer;color:#888;">ยกเลิก</button>
+  </div>
 </div>
-
+ 
+<!-- ====== MODAL: GALLERY ====== -->
 <div class="modal" id="galleryModal">
-    <div class="modal-content" style="max-width: 700px; padding: 20px;">
-        <span onclick="closeGalleryModal()" style="float: right; font-size: 1.8rem; cursor: pointer; color: #888;">&times;</span>
-        <h3 id="galleryRoomTitle" style="margin-bottom: 15px; color: var(--primary);">รูปภาพเพิ่มเติม</h3>
-        
-        <div style="width: 100%; height: 350px; border-radius: 10px; overflow: hidden; margin-bottom: 15px; background: #eee;">
-            <img id="mainGalleryImg" src="" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        
-        <div id="thumbnailContainer" style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px;">
-            </div>
+  <div class="modal-content" style="max-width:700px;padding:20px;">
+    <span onclick="closeModal('galleryModal')" style="float:right;font-size:1.8rem;cursor:pointer;color:#888;">&times;</span>
+    <h3 id="galleryRoomTitle" style="margin-bottom:15px;color:var(--primary);">รูปภาพห้อง</h3>
+    <div style="width:100%;height:350px;border-radius:10px;overflow:hidden;margin-bottom:15px;background:#eee;">
+      <img id="mainGalleryImg" src="" style="width:100%;height:100%;object-fit:cover;">
     </div>
+    <div id="thumbnailContainer" style="display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;"></div>
+  </div>
 </div>
-
+ 
+<!-- ====== MODAL: ADD/EDIT ROOM ====== -->
+<div class="modal" id="roomModal">
+  <div class="modal-content" style="max-width:560px;">
+    <h3 id="roomModalTitle">เพิ่มห้องใหม่</h3>
+    <hr style="margin:15px 0;border:0;border-top:1px solid #eee;">
+    <input type="hidden" id="editRoomId">
+    <div class="form-row">
+      <div class="form-group"><label>หมายเลขห้อง</label><input type="text" id="roomNumber" placeholder="เช่น 101"></div>
+      <div class="form-group"><label>ประเภทห้อง</label>
+        <select id="roomType">
+          <option value="Standard">Standard</option>
+          <option value="Deluxe">Deluxe</option>
+          <option value="VIP Suite">VIP Suite</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group"><label>ราคา / คืน (บาท)</label><input type="number" id="roomPrice" placeholder="เช่น 1200"></div>
+    <div class="form-group"><label>คำอธิบายห้อง</label><textarea id="roomDesc" rows="2" placeholder="สิ่งอำนวยความสะดวก..."></textarea></div>
+ 
+    <!-- Image Upload Section -->
+    <div class="form-group">
+      <label>รูปภาพห้อง</label>
+      <div class="upload-area" id="uploadArea" onclick="document.getElementById('imgFileInput').click()">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <p>คลิกเพื่ออัปโหลดรูป หรือลากวางที่นี่</p>
+        <small>รองรับ JPG, PNG, WEBP (สูงสุด 5MB/รูป)</small>
+      </div>
+      <input type="file" id="imgFileInput" accept="image/*" multiple style="display:none" onchange="handleImageSelect(event)">
+      <div id="imagePreviewGrid" class="image-preview-grid"></div>
+    </div>
+ 
+    <button class="btn-booking" style="margin-top:15px;" onclick="saveRoom()">
+      <span id="saveRoomBtnText">บันทึกห้อง</span>
+    </button>
+    <button onclick="closeModal('roomModal')" style="width:100%;background:none;border:none;margin-top:10px;cursor:pointer;color:#888;">ยกเลิก</button>
+  </div>
+</div>
+ 
+<!-- Toast notification -->
+<div id="toast" class="toast"></div>
+ 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
 </body>
 </html>
+ 
