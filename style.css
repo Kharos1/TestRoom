@@ -32,7 +32,7 @@ nav {
   background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
     url('https://cstbakhzinzvkimaxzom.supabase.co/storage/v1/object/public/room-images/messageImage_1780565257903.jpg');
   height:250px; border-radius:20px; display:flex; align-items:center;
-  justify-content:center; color:white; text-align:center; margin-bottom:30px; background-size:cover;
+  justify-content:center; color:white; text-align:center; margin-bottom:30px; background-size:cover; background-position:center center;
 }
 .hero h1 { font-size:2rem; margin-bottom:8px; }
  
@@ -204,4 +204,3 @@ nav {
   .image-preview-grid { grid-template-columns:repeat(2,1fr); }
   .admin-table th, .admin-table td { padding:8px 10px; font-size:.85rem; }
 }
- 
