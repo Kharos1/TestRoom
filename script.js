@@ -78,7 +78,7 @@ function renderCustomerView() {
           <h3>ห้อง ${room.room_number} <span class="type-badge">${room.type}</span></h3>
           <p style="color:#666;margin-bottom:10px;font-size:.9rem;">${room.description || 'สิ่งอำนวยความสะดวกครบครัน'}</p>
           <div style="font-size:1.2rem;font-weight:600;color:var(--accent);margin-bottom:15px;">
-            ฿${room.price.toLocaleString()} / คืน
+            ฿${room.price.toLocaleString()} / เดือน
           </div>
           <button class="btn-booking" ${room.is_full ? 'disabled' : ''} onclick="openBookingModal(${room.id})">
             ${room.is_full ? 'จองเต็มแล้ว' : 'จองห้องนี้'}
